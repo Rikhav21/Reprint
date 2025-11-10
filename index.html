@@ -9,7 +9,7 @@
             Remodel YSWS
         </h1>
         <pi>
-            Have you ever looked at a 3d printer and thought that you could have done a better job? Well this is a WSWS where you can redesign some "suboptimal" printers and get the grant to make it yourself!
+            This is a YSWS where you can redesign some "suboptimal" printers and get the grant to make it yourself!
         </pi>
         <p2>
             To get started you can take a look at the available printers. Either you can can choose one of these from aliexpress, or you can find any printer less than $80 from facebook marketplace, ebay, etc.
@@ -28,20 +28,52 @@
             <img class = "base"src = /assets/base.png>
             <img class = "rail" src = /assets/rail.png>
             <img class = "tool" src = /assets/tool.png>
-            
+            <p2 class = "info"></p2>
         </div>
             <script>
                 document.addEventListener('DOMContentLoaded', () => {
                     const tool = document.querySelector('.tool');
-                    if (!tool) return;
-                    let moved = false;
-                    tool.style.transition = 'transform 0.4s ease';
-                    setInterval(() => {
-                        moved = !moved;
-                        tool.style.transform = `translateX(${moved ? 300 : 0}px)`;
-                    }, 2000);
+                    const rail = document.querySelector('.rail');
+                    const info = document.querySelector('.info');
+                    if (!tool || !rail) return;
+                    const duration = 400; 
+                    tool.style.transition = `transform ${duration}ms ease`;
+                    rail.style.transition = `transform ${duration}ms ease`;
+                    info.style.transition = `transform ${duration}ms ease`;
+
+                    let currentY = 0; 
+                    const sleep = ms => new Promise(res => setTimeout(res, ms));
+
+                    (async () => {
+                        for (let i = 0; i < 8; i++) {
+                            tool.style.transform = `translate(200px, ${currentY}px)`;
+                            await sleep(duration);
+                            currentY -= 15;
+                            rail.style.transform = `translateY(${currentY}px)`;
+                            tool.style.transform = `translate(200px, ${currentY}px)`;
+                            rail.style.transform = `translateY(${currentY}px)`;
+                            await sleep(duration);
+                            for (let i = 0; i < 15; i++) {
+                                info.style.transform = `translateY(${currentY}px)`;
+                                await sleep(10);
+                                info.style.height = `${info.offsetHeight + 1}px`;
+                            }
+                            await sleep(duration);
+                            currentY -= 15;
+                            tool.style.transform = `translate(0px, ${currentY}px)`;
+                            rail.style.transform = `translateY(${currentY}px)`;
+                            await sleep(duration);
+                            for (let i = 0; i < 15; i++) {
+                                info.style.transform = `translateY(${currentY}px)`;
+                                await sleep(10);
+                                info.style.height = `${info.offsetHeight + 1}px`;
+                            }
+                            await sleep(duration);
+                        }
+                    })();
                 });
             </script>
+        <button class = "about"
     </body>
 
 </html>

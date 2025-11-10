@@ -14,18 +14,27 @@ body{
 }
 .base{
     position:absolute;
-    x: 200px;
-    y: 200px;    
+    left: 10px;
+    top: 300px;
 
 }
 .rail{
     position: absolute;
-    x: 200px;
-    y: 200px;
+    left: 10px;
+    top: 580px;
 }
 .tool{
     position: absolute;
-    x: 000px;
-    y: 200px;
+    left: 100px;
+    top: 566px;}
+.image{
+    position: relative;
 }
-
+.info{
+    position: absolute;
+    left: 140px;
+    top: 671px;
+    width: 200px;
+    height: 4px;
+    overflow: hidden;
+}
