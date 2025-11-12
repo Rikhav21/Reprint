@@ -27,7 +27,7 @@
                     const info = document.querySelector('.info');
                     const buttons = document.querySelectorAll('button');
                     if (!tool || !rail || !info) return;
-                    const duration = 150;
+                    const duration = 110;
                     const sleep = ms => new Promise(res => setTimeout(res, ms));
                     let animating = false;
                     tool.style.transition = `transform ${duration}ms ease`;
@@ -40,27 +40,27 @@
                         info.style.height = `${info.offsetHeight}px`;
                         info.style.height = `${0}px`;
                         let currentY = 0;
-                        for (let loop = 0; loop < 10; loop++) {
+                        for (let loop = 0; loop < 8; loop++) {
                             tool.style.transform = `translate(300px, ${currentY}px)`;
                             await sleep(duration);
-                            currentY -= 15;
+                            currentY -= 20;
                             rail.style.transform = `translateY(${currentY}px)`;
                             tool.style.transform = `translate(300px, ${currentY}px)`;
                             await sleep(duration);
 
-                            for (let i = 0; i <3; i++) {
+                            for (let i = 0; i <4; i++) {
                                 info.style.transform = `translateY(${currentY}px)`;
                                 info.style.height = `${info.offsetHeight + 5}px`;
                                 await sleep(duration);
                             }
                             await sleep(duration);
 
-                            currentY -= 15;
+                            currentY -= 20;
                             tool.style.transform = `translate(0px, ${currentY}px)`;
                             rail.style.transform = `translateY(${currentY}px)`;
                             await sleep(duration);
 
-                            for (let i = 0; i < 3; i++) {
+                            for (let i = 0; i < 4; i++) {
                                 info.style.transform = `translateY(${currentY}px)`;
                                 info.style.height = `${info.offsetHeight + 5}px`;
                                 await sleep(duration);
