@@ -1,16 +1,12 @@
 html{
     background-color: rgb(12, 8, 70);
     font-family: 'sans-serif';
+    overflow: hidden;
 
 }
 body{
     color: rgb(253, 206, 119);
 
-}
-.hi{
-    text-align: center;
-    font-size: 50px;
-    
 }
 .flag{
     position: absolute;
@@ -18,86 +14,89 @@ body{
     left: 10px;
     width: 150px;
 }
-.base{
-    position:absolute;
-    left: 10px;
-    top: 300px;
-    height:600px;
-    width: 600px;
 
-}
-.rail{
-    position: absolute;
-    left: 10px;
-    top: 655px;
-    height:68px;
-    width: 496px;
-}
-.tool{
-    position: absolute;
-    left: 100px;
-    top: 641px;}
-.image{
+.printer {
     position: relative;
+    width: 500px;   /* Set your desired printer width */
+    height: 500px;  /* Keeps alignment stable */
+    background-color: transparent;
 }
+
+.printer img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 10% !important;
+    height: 10% !important;
+    max-width: 10% !important;
+    pointer-events: none;
+}
+
+/* Offset the rail inside the printer */
+.printer .rail {
+    width: 10% !important; /* size of the tool head */
+}
+
+/* Offset the tool so it sits on the rail */
+.printer .tool {
+
+    width: 20%; /* size of the tool head */
+}
+
+.image {
+    width: 50%;
+    height: 50%;
+    max-width: 50%;
+}
+
 .info{
     position: absolute;
-    left: 140px;
+    left: 240px;
     top: 749px;
     width: 310px;
     height: 4px;
     overflow: hidden;
     font-size: 20px;
+    background-color: transparent;
 }
 .intro{
     font-size: 25px;
     font-family:'Times New Roman', Times, serif;
 }
-.Requirements{
-    position:absolute;
-    left: 610px;
-    top: 300px;
-    width: 200px;
-    height: 100px;
+.rp-btn{
     border-radius:20px;
-    border: 2px solid rgb(4, 65, 14);
-    background-color:green;
+    padding: 5%;
+    background-color: rgb(232,114,4);
     color: white;
     font-size:20px;
 }
-.Ideas{
-    position:absolute;
-    left: 610px;
-    top: 540px;
-    width: 200px;
-    height: 100px;
-    border-radius:20px;
-    border: 2px solid rgb(82, 76, 1);
-    background-color:rgb(247, 163, 9);
-    color: white;
-    font-size:20px;
+
+
+.options-box div {
+    padding: 10px;
+    background-color: transparent;
+    display: flex;
+    align-items: center; /* Centers vertically */
+    transform: translateY(550%);
 }
-.Timeline{
-    position:absolute;
-    left: 610px;
-    top: 420px;
-    width: 200px;
-    height: 100px;
-    border-radius:20px;
-    border: 2px solid rgb(65, 4, 4);
-    background-color:rgb(128, 0, 0);
-    color: white;
-    font-size:20px;
+
+.phone {
+    margin: 0 auto;
+    height: 50%;
+    background-color: rgb(8, 6, 48) !important;
+    border: 5px solid rgb(232,114,4);
+    border-radius: 20px;
+    transform: translateY(-350%);
 }
-.What{
-    position:absolute;
-    left: 610px;
-    top: 660px;
-    width: 200px;
-    height: 100px;
-    border-radius:20px;
-    border: 2px solid rgb(0, 21, 110);
-    background-color:rgb(4, 0, 255);
-    color: white;
-    font-size:20px;
+
+.bg-color-dark {
+    background-color: rgb(8, 6, 48) !important;
+}
+
+.bg-color {
+    background-color: rgb(12, 8, 70) !important;
+}
+
+.text-white {
+    color: white !important;
 }
