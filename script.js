@@ -21,7 +21,7 @@ function onHelpClick(element) {
     info.style.height = `${info.offsetHeight}px`;
     info.style.height = `${10}px`;
     let currentY = 0;
-    for (let loop = 0; loop < 8; loop++) {
+    for (let loop = 0; loop < 10; loop++) {
         tool.style.transform = `translate(327px, ${currentY}px)`;
         await sleep(duration);
         currentY -= 20;
